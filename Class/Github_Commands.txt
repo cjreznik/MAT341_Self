@@ -1,3 +1,6 @@
+How to push files to github :)
+Updated Wed Sept 4th 
+
 1. git add file name or folder name
 
 2. git commit -m "notes for yourself"
