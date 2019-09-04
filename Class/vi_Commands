@@ -1,0 +1,11 @@
+How to do vi Commands :)
+
+i - insert text/edit
+
+esc - stop editing
+
+:# - brings you to specific line
+
+:w - saves file
+
+:q - quit
