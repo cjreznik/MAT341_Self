@@ -7,8 +7,4 @@ Updated Wed Sept 4
 
 -pwd: shows where you are
 
--vi:edit the file
-
--hit i to insert
-
--hit esc to stop editing 
+-vi:edit the file 
