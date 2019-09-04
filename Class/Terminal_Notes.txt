@@ -1,5 +1,14 @@
-Notes on Terminal Commands
 
+Notes on Terminal Commands :)
+Updated Wed Sept 4
 -ls: lists every file/folder in directory
 
 -cd:change directory
+
+-pwd: shows where you are
+
+-vi:edit the file
+
+-hit i to insert
+
+-hit esc to stop editing 
