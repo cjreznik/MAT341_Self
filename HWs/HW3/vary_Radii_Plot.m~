@@ -1,0 +1,25 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+
+
+
+function vary_Radii_Plot()
+
+N = 1e5;
+rVec = [0.01:0.005:0.10 0.1:0.01:0.5];
+
+for i = 1:length(rVec)
+    
+    estimatedProbs(i) = estimate_Coin_In_Square_Probability(rVec(i),N);
+end
+
+plot(rVec, estimatedProbs)
+
+lw = 4;
+fs = 18;
+
+xlabel('radius');
+ylabel('Probability');
+
+set(gca,'FontSize',fs);

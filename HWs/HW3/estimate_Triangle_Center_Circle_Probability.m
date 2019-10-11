@@ -1,0 +1,36 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Function that calculates the probability the center of the circle is 
+%cointained within a random triangle formed%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function prob = estimate_Triangle_Center_Circle_Probability(N)
+
+count = 0; %initialize counter 
+for i = 1:N
+
+theta(1) = 2*pi*rand();%pick 3 random angles in [0,2pi]
+theta(2) = 2*pi*rand();
+theta(3) = 2*pi*rand();
+
+A = [theta(1) theta(2) theta(3)]; %create vector of theta points
+sort(A); %sort elements of A in ascending order
+
+B = sort(A); %create matrix of sorted elements and rename
+t1 = B(1);
+t2 = B(2);
+t3 = B(3);
+
+    if t2 < (t1 + pi) && t2 > (t3 - pi) %if the angle is between the first angle plus pi
+        % and third angle minus pi then the origin is contained in the
+        % triangle
+    
+    count = count + 1; %if this condition is met, increment counter
+    
+    end
+end
+
+
+prob = count/N %finds probability (counts over trials)
+    
+    
+    
+
