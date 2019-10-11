@@ -2,7 +2,9 @@
 %Calls estimate_Coin_In_Square_Probability and plots radii against 
 %probailities
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%When the probability is 0.5, r = .15
+%When the probability is 0.1, r = .35
+%When the probability is 0.01, r = .5
 
 
 function vary_Radii_Plot()
