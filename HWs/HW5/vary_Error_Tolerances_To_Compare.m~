@@ -1,0 +1,41 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%Function that compares the error tolerances of different
+%%%scripts from a vector of tolerances and plots them to compare using
+%%%semilog and loglog plots
+
+
+
+function vary_Error_Tolerances_To_Compare
+
+errTolVec = [1e-1 1e-2 1e-3 1e-4 1e-5 1e-6 1e-7 1e-8 1e-9 1e-10 1e-11 1e-12]; %vector of different error tolerances we are passing in
+
+for i = 1:length(errTolVec) %runs for length of error Vector 
+    
+    ParabolaVec(i) = successive_Parabolic_Interpolation(errTolVec(i));%pass errTolVec in Parabolic script
+    
+    GoldenSearchVec(i) = golden_Search(errTolVec(i)); %pass errTolVec in Golden Search script
+    
+    Newtonsvec(i) = Newtons_1D_Opt(errTolVec(i));
+    
+    
+end
+
+
+%%plot figure comparing each method in different colors using semilogx
+figure(1);semilogx(errTolVec,GoldenSearchVec, 'blue', 'LineWidth', 5);hold on;semilogx(errTolVec,ParabolaVec, 'red','LineWidth', 5); hold on; semilogx(errTolVec,Newtonsvec, 'black','LineWidth', 5);hold off
+
+xlabel ('Number of Iterations (N)')
+ylabel ('Error Tolerance (tol)')
+legend('Golden Search', 'Parabolic Interpolations','Newtonsvec');
+
+%%plot figure comparing each method in different colors using loglog
+
+figure(2);loglog(errTolVec,ParabolaVec, 'red','LineWidth', 5); hold on; loglog(errTolVec,GoldenSearchVec, 'blue','LineWidth', 5) ;hold on; loglog(errTolVec,Newtonsvec,'black','LineWidth',5);hold off
+xlabel ('Error Tolerance (tol)')
+ylabel ('Number of Iterations (N)')
+
+legend('Parabolic Interpolations','Golden Search','Newtonsvec');
+
+%% a)Newton's Method converges faster in both graphs and the loglog graph shows this better
+%% b) When you increase the accuracy threshold the Golden Search algorithm converges quicker because the Parabolic 
+%% c) You could change the convergence rates if you
