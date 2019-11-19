@@ -1,0 +1,22 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Runs Gradient_Descent_1 for a variety of step sizes, gamma, to find
+%%% which gamma minimizes the total number of iterations needed to achieve
+%%% 1e-10 
+
+function vary_StepSize_Gamma_To_Optimize()
+
+gammaVector = [.5:0.02:1.5] %initialize gamma Vector
+
+for i = 1 : length(gammaVector) %for loop runs for length of gammaVector
+    
+    gammaVector2(i) = Gradient_Descent_1(1e-10,gammaVector(i)); %setting new vector equal to previous vector 
+    
+end
+ %plot vector using semilogx with labels
+figure; semilogx(gammaVector,gammaVector2, 'blue','LineWidth', 5);
+
+ylabel(' # og iterations (N)');
+xlabel(' Gamma (Step-Size)');
+legend('Fixed Step');
+
+%%a) The best step size gamma is 1.

@@ -1,0 +1,37 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%Function that takes two inputs, tol and gamma and returns the number of 
+%%% iterations, N, needed to achieve a certain error tolerance
+%%% using a specific fixed step size gamma
+
+function N = Gradient_Descent_1(tol,gamma)
+
+xn = [1,1.5]; %initial vector
+
+err = 1;
+N = 0;
+
+while err > tol
+    N = N + 1;
+    xn1 = xn - gamma*Grad(xn);
+    
+    err = sqrt((xn1 - xn).'*(xn1-xn));
+    
+    xn = xn1;
+    
+end
+
+N
+err
+
+function val = Grad(x)
+
+
+val =  [-cos(x(1)); sin(x(2))];
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Using the initial condition above:
+%a)34 iterations to achieve 1e-10 accuracy using gamma 0.5
+%b)12 iterations to achieve 1e-10 accuracy using gamma 0.9
+%c)35 iterations to achieve 1e-10 accuracy using gamma 1.5
