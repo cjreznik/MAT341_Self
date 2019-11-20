@@ -38,4 +38,4 @@ legend('Fixed Step', 'Barzilai-Borwein');
 %%c)The advantage of using Barilai-Borwein step size is that it takes less
 %%time to converge.
 %%d) If I were to modify my code to minimize a different function I would
-%%choose the fixed step size method so I could pick the gamma.
+%%choose the second method so it adjusts the gamma as it runs.
